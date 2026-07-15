@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+
+<html>
+    <head>
+        <title>Password Analyzer</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Password Analyzer</h1>
+        <form action="/analyze" method="post">
+        
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <br
+            <button type="submit">Analyze Password</button>
+
+            
+            
+            <progress id="strength-bar" value="0" max="100"></progress>
+            <p id="strength-text"></p>
+
+            <script src="{{ url_for('static', filename='script.js') }}"></script>
+        </form>
+    </body>
+</html>

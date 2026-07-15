@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>Results</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body> 
+        <h2>Analysis Results</h2>
+        <h3>Score: {{ score }}/100</h3>
+        <p><strong>Strength:</strong> {{ strength  }}</p>
+
+        {% if reused %}
+
+        <h3 style="color: red;">This password has been reused in previous data breaches.</h3>
+            <p class="warning">Warning: This password has been found in previous data breaches. Consider changing it.</p>
+        {% endif %}
+
+        <h3>Suggestions:</h3>
+        <ul>
+            {% for suggestion in suggestions %}
+            <li>{{ suggestion }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Suggested Password:</h3>
+        <p>{{ generated_password }}</p>
+        
+        
+         <p><strong>Password Entropy:</strong> {{ entropy }} bits</p>
+        
+
+        <a href="/">Analyze Another Password</a>
+
+       
+    </body>
+</html>
